@@ -24,18 +24,18 @@ int main(){
             if(pid == 0){
                 // Nodo C
                 printf("Soy Nodo C, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
-     
+                system("ls");
                 pid = fork();
 
                 if(pid == 0){
                     // Nodo D
                     printf("Soy Nodo D, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
-          
+                    system("ps");
                     pid = fork();
                     if (pid == 0){
                         //Nodo E
                         printf("Soy Nodo E, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
-                        
+                        system("date");
                         wait(NULL);
                         return 0;
                     }
@@ -46,10 +46,12 @@ int main(){
                         if(pid ==  0){
                             //Nodo F
                             printf("Soy Nodo F, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
-
+                            system("ps");
                             pid = fork();
                             if(pid == 0){
+                                // NOdo G
                                 printf("Soy Nodo G, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
+                                system("touch estructura_procesos");
                                 wait(NULL);
                                 return 0;
                             }
@@ -59,7 +61,7 @@ int main(){
                         }
                         
                      } 
-                     
+                    wait(NULL);
                     wait(NULL);
                     return 0;
       
@@ -72,10 +74,12 @@ int main(){
         } else if(pid == 0){
             //Nodo B
             printf("Soy Nodo B, mi PID es: #%d y mi padre es: #%d\n", getpid(), getppid());
+            system("pwd");
             wait(NULL);
             return 0;
         }
 
+        wait(NULL);
         wait(NULL);
         printf("Clear\n");
         return 0;
