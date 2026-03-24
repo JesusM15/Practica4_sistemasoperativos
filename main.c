@@ -9,6 +9,7 @@ int main(){
     int pid = 0;
     
     printf("Soy el padre de todos los siguientes procesos, los cuales realizan distintas tareas.\n");
+    printf("Soy Nodo P, mi PID es: #%d\n", getpid());
     fflush(stdout);
 
     pid = fork();
